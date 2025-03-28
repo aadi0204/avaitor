@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play the exciting Aviator game - bet and watch your multiplier grow as the plane flies higher!">
-    <meta name="keywords" content="aviator game, betting game, multiplier game, online casino game">
+    <meta name="description" content="Play Aviator - the exciting multiplier game where you control when to cash out. Bet, watch the plane fly, and multiply your winnings!">
+    <meta name="keywords" content="aviator game, betting game, multiplier game, cash out game, online betting">
+    <meta name="author" content="Aviator Game">
+    <meta property="og:title" content="Aviator - Multiplier Betting Game">
+    <meta property="og:description" content="Bet and watch your multiplier grow as the plane flies higher!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/aviator">
     <title>Aviator Game - Bet and Multiply Your Winnings</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +36,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-            color: var(--dark-color);
+            background-color: #0f172a;
+            color: white;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -45,7 +50,8 @@
         }
 
         header {
-            background-color: white;
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
@@ -65,9 +71,8 @@
             gap: 10px;
         }
 
-        .logo i {
-            font-size: 28px;
-            color: var(--primary-color);
+        .logo img {
+            height: 40px;
         }
 
         .logo h1 {
@@ -79,23 +84,6 @@
             color: transparent;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
         .balance-container {
             display: flex;
             align-items: center;
@@ -104,6 +92,7 @@
 
         .balance-label {
             font-weight: 500;
+            color: #94a3b8;
         }
 
         .balance-amount {
@@ -127,15 +116,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--dark-color);
-            cursor: pointer;
-        }
-
         .game-container {
             display: flex;
             flex-direction: column;
@@ -144,16 +124,17 @@
         }
 
         .game-area {
-            background-color: white;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
             position: relative;
             overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            transition: filter 0.5s ease;
+            min-height: 400px;
+            transition: all 0.5s ease;
         }
 
         .game-area.flying {
@@ -192,11 +173,15 @@
             left: 0;
             bottom: 0;
             transform: translateX(-50%);
-            font-size: 40px;
-            color: var(--primary-color);
             z-index: 5;
             transition: left 0.1s linear, bottom 0.1s linear;
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+            width: 80px;
+        }
+
+        .plane img {
+            width: 100%;
+            height: auto;
         }
 
         .flight-path {
@@ -228,12 +213,14 @@
 
         .betting-panel {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 20px;
-            background-color: white;
+            background-color: rgba(15, 23, 42, 0.8);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .bet-amount, .auto-cashout {
@@ -244,19 +231,21 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: #94a3b8;
         }
 
         .input-group {
             display: flex;
             align-items: center;
-            border: 1px solid #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 5px;
             overflow: hidden;
+            background-color: rgba(15, 23, 42, 0.5);
         }
 
         .input-group span {
             padding: 0 10px;
-            background-color: #f8f9fa;
+            background-color: rgba(15, 23, 42, 0.8);
             color: var(--gray-color);
         }
 
@@ -266,6 +255,8 @@
             padding: 12px;
             font-size: 16px;
             outline: none;
+            background-color: transparent;
+            color: white;
         }
 
         .quick-buttons {
@@ -276,16 +267,17 @@
 
         .quick-bet {
             padding: 5px 10px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 3px;
             cursor: pointer;
             font-size: 14px;
+            color: white;
             transition: background-color 0.2s;
         }
 
         .quick-bet:hover {
-            background-color: #e9ecef;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .action-buttons {
@@ -315,6 +307,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .btn-bet:disabled {
+            background: #334155;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
         .btn-cashout {
             background-color: var(--success-color);
             color: white;
@@ -326,151 +324,69 @@
         }
 
         .btn-cashout:disabled {
-            background-color: #cccccc;
+            background-color: #334155;
             cursor: not-allowed;
             opacity: 0.7;
         }
 
-        .info-section, .stats-section, .history-section {
-            margin: 40px 0;
-            padding: 30px 0;
-        }
-
-        h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            text-align: center;
-            color: var(--dark-color);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .step {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-gradient);
-            color: white;
-            border-radius: 50%;
+        .auto-cashout-toggle {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin: 0 auto 15px;
-        }
-
-        .step h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .stat-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .stat-card h3 {
-            font-size: 18px;
-            color: var(--gray-color);
-            margin-bottom: 10px;
-        }
-
-        .stat-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .history-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
             gap: 10px;
+            margin-top: 10px;
         }
 
-        .history-item {
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #334155;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
             background-color: white;
-            border-radius: 5px;
-            padding: 10px;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--success-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .waiting-message {
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            font-weight: 600;
-        }
-
-        .history-item.win {
-            color: var(--success-color);
-            border-bottom: 3px solid var(--success-color);
-        }
-
-        .history-item.loss {
-            color: var(--danger-color);
-            border-bottom: 3px solid var(--danger-color);
-        }
-
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 40px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 14px;
+            color: var(--warning-color);
+            font-weight: 500;
+            margin-top: 10px;
+            display: none;
         }
 
         /* Deposit Modal */
@@ -488,13 +404,14 @@
         }
 
         .modal-content {
-            background-color: white;
+            background-color: #1e293b;
             padding: 30px;
             border-radius: 10px;
             width: 90%;
             max-width: 500px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
+            color: white;
         }
 
         .close-modal {
@@ -503,16 +420,17 @@
             right: 15px;
             font-size: 24px;
             cursor: pointer;
-            color: var(--gray-color);
+            color: #94a3b8;
         }
 
         .modal h2 {
             margin-bottom: 20px;
             text-align: left;
+            color: white;
         }
 
         .upi-container {
-            background-color: #f8f9fa;
+            background-color: #0f172a;
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
@@ -549,28 +467,47 @@
 
         .deposit-instructions li {
             margin-bottom: 8px;
+            color: #94a3b8;
+        }
+
+        /* History Section */
+        .history-section {
+            margin: 40px 0;
+            padding: 30px 0;
+        }
+
+        .history-section h2 {
+            color: white;
+        }
+
+        .history-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .history-item {
+            background-color: rgba(15, 23, 42, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .history-item.win {
+            color: var(--success-color);
+            border-bottom: 3px solid var(--success-color);
+        }
+
+        .history-item.loss {
+            color: var(--danger-color);
+            border-bottom: 3px solid var(--danger-color);
         }
 
         /* Responsive Styles */
-        @media (max-width: 992px) {
-            .betting-panel {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-        
-            .balance-container {
-                display: none;
-            }
-            
             .plane-container {
                 height: 200px;
             }
@@ -578,9 +515,11 @@
             .multiplier-display {
                 font-size: 20px;
             }
-        }
 
-        @media (max-width: 576px) {
+            .betting-panel {
+                padding: 15px;
+            }
+
             .action-buttons {
                 flex-direction: column;
             }
@@ -588,17 +527,28 @@
             .btn-bet, .btn-cashout {
                 width: 100%;
             }
-            
-            .steps {
-                grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 20px;
             }
-            
-            .history-list {
-                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+
+            .balance-container {
+                gap: 10px;
             }
-            
+
+            .btn-deposit {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+
             .modal-content {
                 padding: 20px;
+            }
+
+            .history-list {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
             }
         }
     </style>
@@ -607,24 +557,14 @@
     <header>
         <div class="container">
             <div class="logo">
-                <i class="fas fa-plane"></i>
+                <img src="https://media.canva.com/1/image/private/c_lpad,w_400,h_400,c_fill,q_auto:best,f_auto/v1/samples/1HEn8ZJXJQk/1.png" alt="Aviator Game Logo">
                 <h1>Aviator</h1>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#how-to-play">How to Play</a></li>
-                    <li><a href="#stats">Stats</a></li>
-                    <li><a href="#history">History</a></li>
-                </ul>
-            </nav>
             <div class="balance-container">
                 <span class="balance-label">Balance:</span>
                 <span class="balance-amount">$1000.00</span>
                 <button class="btn-deposit" id="open-deposit-modal">Deposit</button>
             </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </header>
 
@@ -636,7 +576,7 @@
                 </div>
                 <div class="plane-container">
                     <div class="plane" id="plane">
-                        <i class="fas fa-plane"></i>
+                        <img src="https://media.canva.com/1/image/private/c_lpad,w_400,h_400,c_fill,q_auto:best,f_auto/v1/samples/1HEn8ZJXJQk/1.png" alt="Flying Plane">
                     </div>
                     <div class="flight-path"></div>
                 </div>
@@ -663,91 +603,32 @@
                         <input type="number" id="auto-cashout-input" value="2.00" min="1.01" step="0.01">
                         <span>x</span>
                     </div>
+                    <div class="auto-cashout-toggle">
+                        <label>Enable Auto Cashout</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="auto-cashout-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="action-buttons">
                     <button id="place-bet-btn" class="btn-bet">Place Bet</button>
                     <button id="cashout-btn" class="btn-cashout" disabled>Cash Out</button>
                 </div>
-            </div>
-        </section>
-
-        <section id="how-to-play" class="info-section">
-            <h2>How to Play Aviator</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Place Your Bet</h3>
-                    <p>Set your bet amount and auto cashout multiplier before the round starts.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Watch the Plane Take Off</h3>
-                    <p>The plane will start flying and the multiplier will increase from 1.00x upwards.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Cash Out</h3>
-                    <p>Press Cash Out to lock in your winnings at the current multiplier, or wait for auto cashout.</p>
+                <div class="waiting-message" id="waiting-message">
+                    <i class="fas fa-spinner fa-spin"></i> Waiting for next round...
                 </div>
             </div>
         </section>
 
-        <section id="stats" class="stats-section">
-            <h2>Game Statistics</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>Total Bets</h3>
-                    <p class="stat-value">1,245</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Highest Multiplier</h3>
-                    <p class="stat-value">12.76x</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Average Cashout</h3>
-                    <p class="stat-value">2.43x</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Players Online</h3>
-                    <p class="stat-value">428</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="history" class="history-section">
+        <section class="history-section">
             <h2>Round History</h2>
-            <div class="history-list">
+            <div class="history-list" id="history-list">
                 <!-- Will be populated by JavaScript -->
             </div>
         </section>
     </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About Aviator</h3>
-                    <p>The exciting multiplier game where you decide when to cash out. Play responsibly.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#how-to-play">How to Play</a></li>
-                        <li><a href="#stats">Statistics</a></li>
-                        <li><a href="#history">History</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Responsible Gaming</h3>
-                    <p>Set limits and play responsibly. Gambling can be addictive.</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Aviator Game. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- Deposit Modal -->
     <div class="modal" id="deposit-modal">
@@ -780,21 +661,25 @@
             let isGameRunning = false;
             let isCashedOut = false;
             let autoCashoutValue = 2.00;
+            let isAutoCashoutEnabled = true;
             let gameInterval;
             let crashPoint = 0;
             let roundHistory = [];
+            let isWaitingForRound = false;
             
             // DOM elements
             const balanceAmountEl = document.querySelector('.balance-amount');
             const betInputEl = document.getElementById('bet-input');
             const autoCashoutInputEl = document.getElementById('auto-cashout-input');
+            const autoCashoutToggleEl = document.getElementById('auto-cashout-toggle');
             const placeBetBtn = document.getElementById('place-bet-btn');
             const cashoutBtn = document.getElementById('cashout-btn');
             const multiplierValueEl = document.querySelector('.multiplier-value');
             const crashPointEl = document.getElementById('crash-point');
             const planeEl = document.getElementById('plane');
             const gameAreaEl = document.getElementById('game-area');
-            const historyListEl = document.querySelector('.history-list');
+            const historyListEl = document.getElementById('history-list');
+            const waitingMessageEl = document.getElementById('waiting-message');
             const quickBetButtons = document.querySelectorAll('.quick-bet');
             
             // Deposit modal elements
@@ -816,6 +701,10 @@
                 
                 autoCashoutInputEl.addEventListener('change', function() {
                     autoCashoutValue = parseFloat(this.value) || 2.00;
+                });
+                
+                autoCashoutToggleEl.addEventListener('change', function() {
+                    isAutoCashoutEnabled = this.checked;
                 });
                 
                 // Quick bet buttons
@@ -865,6 +754,11 @@
             }
             
             function startGame() {
+                if (isWaitingForRound) {
+                    waitingMessageEl.style.display = 'block';
+                    return;
+                }
+                
                 const betAmount = parseFloat(betInputEl.value);
                 
                 // Validate bet
@@ -899,6 +793,7 @@
                 // Disable bet button, enable cashout
                 placeBetBtn.disabled = true;
                 cashoutBtn.disabled = false;
+                waitingMessageEl.style.display = 'none';
                 
                 // Add flying effects
                 gameAreaEl.classList.add('flying');
@@ -923,7 +818,7 @@
                 planeEl.style.bottom = `${planeHeight}%`;
                 
                 // Check for auto cashout
-                if (!isCashedOut && currentMultiplier >= autoCashoutValue) {
+                if (isAutoCashoutEnabled && !isCashedOut && currentMultiplier >= autoCashoutValue) {
                     cashout();
                 }
                 
@@ -962,12 +857,18 @@
                 // Remove flying effects
                 gameAreaEl.classList.remove('flying');
                 
+                // Show waiting message
+                isWaitingForRound = true;
+                waitingMessageEl.style.display = 'block';
+                
                 // Generate new crash point for next round
                 setTimeout(() => {
                     generateRandomCrashPoint();
                     planeEl.style.left = '0%';
                     planeEl.style.bottom = '0%';
-                }, 2000);
+                    isWaitingForRound = false;
+                    waitingMessageEl.style.display = 'none';
+                }, 3000);
             }
             
             function generateRandomCrashPoint() {
@@ -1036,23 +937,6 @@
                 
                 updateHistoryDisplay();
             }
-            
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const nav = document.querySelector('nav');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-            });
-            
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        nav.style.display = 'none';
-                    }
-                });
-            });
         });
     </script>
 </body>
